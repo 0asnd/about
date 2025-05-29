@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>asnd</title>
+  <link rel="icon" type="image/pfp" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/topo.gif');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: inherit;
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+      transition: filter 0.3s ease;
+    }
+    .background.unblur::before {
+      filter: none;
+    }
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      z-index: 1;
+      flex-direction: column;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.75);
+      border: 1px solid #fff;
+      border-radius: 15px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    .square {
+      width: 360px;
+      height: 550px;
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      display: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 20px;
+    }
+    .square.visible {
+      display: block;
+      transform: scale(1.1);
+    }
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-image: url('assets/pfp.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .text {
+      margin-top: 130px;
+      color: #fff;
+      font-size: 35px;
+      font-family: 'Inconsolata', monospace;
+    }
+    .additional-text {
+      margin-top: 25px;
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Inconsolata', monospace;
+    }
+    .projects-title {
+      margin-top: 25px;
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Inconsolata', monospace;
+    }
+    /* Grid Styling */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 25px;
+    }
+    .project-btn {
+      padding: 10px;
+      font-size: 20px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .socials-title {
+      margin-top: 25px;
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Inconsolata', monospace;
+    }
+    .socials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 25px;
+    }
+    .socials-btn {
+      padding: 10px;
+      font-size: 20px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <div>
+      <button class="btn" onclick="unblurContent()">click to enter</button>
+      <div class="square">
+        <div class="circle"></div>
+        <div class="text">asnd</div>
+        <div class="additional-text">website</div>
+        <div class="projects-title">projects</div>
+        <div class="projects-grid">
+          <button class="project-btn">ilb (wip)</button>
+        </div>
+        <div class="socials-title">socials</div>
+        <div class="socials-grid">
+            <button class="socials-btn" onclick="link('discord')">discord</button>
+            <button class="socials-btn" onclick="link('roblox')">roblox</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <audio id="background-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function unblurContent() {
+      document.querySelector('.btn').style.display = 'none';
+      document.querySelector('.square').classList.add('visible');
+      document.querySelector('.background').classList.add('unblur');
+      document.getElementById('background-music').play();
+    }
+    function link(url) {
+        if (url = "discord") {
+          document.location = "https://discord.com/users/1267008569694355497"
+        }
+        if (url = "roblox") {
+          document.location = "https://www.roblox.com/users/5587642635/profile"
+        }
+    }
+  </script>
+</body>
+</html>
