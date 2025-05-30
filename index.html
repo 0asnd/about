@@ -170,8 +170,8 @@
         </div>
         <div class="socials-title">socials</div>
         <div class="socials-grid">
-            <button class="socials-btn" onclick="link('discord')">discord</button>
-            <button class="socials-btn" onclick="link('roblox')">roblox</button>
+            <button class="socials-btn" onclick="link('https://discord.com/users/1267008569694355497')">discord</button>
+            <button class="socials-btn" onclick="link('https://www.roblox.com/users/5587642635/profile')">roblox</button>
           </div>
       </div>
     </div>
@@ -190,11 +190,7 @@
       document.getElementById('background-music').play();
     }
     function link(url) {
-        if (url = "discord") {
-          document.location = "https://discord.com/users/1267008569694355497"
-        } else if (url === "roblox") {
-          document.location = "https://www.roblox.com/users/5587642635/profile";
-        }
+        document.location = url
     }
   </script>
 </body>
