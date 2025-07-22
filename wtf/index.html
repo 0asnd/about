@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="asnd" content="true" />
+  <title>asnd wow</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(location.search);
+      const place = params.get("placeId");
+      const job = params.get("gameInstanceId");
+
+      if (place && job) {
+        const url = `roblox://experiences/start?placeId=${place}&gameInstanceId=${job}`;
+        location.href = url;
+
+        setTimeout(() => {
+          alert("try again");
+        }, 2000);
+      } else {
+        console.warn("wrong params");
+      }
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
